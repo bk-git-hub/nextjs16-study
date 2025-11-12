@@ -3,6 +3,7 @@
 import { auth } from '@/auth';
 import UserAvatar from '../user-avatar';
 import Link from 'next/link';
+import { SignOut } from '../sign-out';
 
 export default async function Header() {
   const session = await auth();
@@ -10,7 +11,11 @@ export default async function Header() {
   return (
     <header>
       {session ? (
-        <UserAvatar session={session} />
+        <div className='flex'>
+          {' '}
+          <UserAvatar session={session} />
+          <SignOut />
+        </div>
       ) : (
         <Link href='/sign-in'>Sign In</Link>
       )}
