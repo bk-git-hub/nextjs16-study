@@ -4,13 +4,15 @@ import Image from 'next/image';
 export default function UserAvatar({ session }: { session: Session }) {
   if (!session?.user) return null;
   const { image, name } = session.user;
+  // console.log('name: ' + name);
   if (image) {
     return (
-      <div>
+      <div className='w-20 h-20 relative'>
         <Image
           src={image}
           alt={name || 'User Avatar'}
           className='w-10 h-10 rounded-full'
+          fill
         />
       </div>
     );
@@ -21,7 +23,7 @@ export default function UserAvatar({ session }: { session: Session }) {
 
     return (
       <div
-        className='flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 font-semibold'
+        className='flex items-center justify-center w-20 h-20 rounded-full bg-gray-200 text-gray-700 font-semibold'
         aria-label={name}
       >
         {initials}
