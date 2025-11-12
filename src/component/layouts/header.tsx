@@ -1,9 +1,19 @@
-import UserAvatar from '../user-avatar';
+// src/components/Header.tsx (or .jsx)
 
-export default function Header() {
+import { auth } from '@/auth';
+import UserAvatar from '../user-avatar';
+import Link from 'next/link';
+
+export default async function Header() {
+  const session = await auth();
+
   return (
     <header>
-      <UserAvatar />
+      {session ? (
+        <UserAvatar session={session} />
+      ) : (
+        <Link href='/sign-in'>Sign In</Link>
+      )}
     </header>
   );
 }
