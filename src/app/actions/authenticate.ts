@@ -16,7 +16,7 @@ export async function authenticate(
   try {
     await signIn('credentials', {
       ...Object.fromEntries(formData),
-      redirectTo: '/dashboard',
+      redirectTo: '/',
     });
     return {};
   } catch (err) {
