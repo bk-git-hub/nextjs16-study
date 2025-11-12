@@ -7,7 +7,7 @@ import { authenticate, type AuthFormState } from '../../actions/authenticate';
 
 const initialState: AuthFormState | undefined = undefined;
 
-export default function SignInForm() {
+export default function SignInPage() {
   const [state, formAction, isPending] = useActionState(
     authenticate,
     initialState
