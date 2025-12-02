@@ -8,9 +8,10 @@ import { SignOut } from '../sign-out';
 export default async function Header() {
   const session = await auth();
   console.log('header rendered');
+  console.log(session);
   return (
     <header>
-      {session ? (
+      {session != null ? (
         <div className='flex'>
           {' '}
           <UserAvatar session={session} />
